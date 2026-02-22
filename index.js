@@ -164,8 +164,76 @@ const ok = `<!DOCTYPE html>
 app.listen(8081, (req, res) => {
   console.log("everything is working fine at http://localhost:8081");
 });
-app.get("/", (req, res) => {
+app.get("/", (req, res) => {// let try all 
   res.status(200).send(`${ok}`);
+});
+app.all('',(req ,res)=>{
+  res.status(500).send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admininistration portal</title>
+<style>
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #7b838a, #b6e5e8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+.card {
+  font-family: Montserrat, sans-serif;
+  width: 300px;
+  height: 250px;
+  translate: -6px -6px;
+  background: #ff66a3;
+  border: 3px solid #000000;
+  box-shadow: 12px 12px 0 #000000;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.head {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  width: 100%;
+  height: 32px;
+  background: #ffffff;
+  padding: 5px 12px;
+  color: #000000;
+  border-bottom: 3px solid #000000;
+}
+
+.content {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.card:hover {
+  translate: -6px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">Window</div>
+  <div class="content">
+    This page is not deploy yet
+  </div>
+</div>
+</body>
+</html>`)
 });
 app.get("/books/:id", (req, res) => {
   const book = books.find((b) => b.id === parseInt(req.params.id));
