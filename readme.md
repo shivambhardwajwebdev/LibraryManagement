@@ -49,6 +49,10 @@ GET : Get all issued books with thier fine amount
  mention start and dev in script of package.json
 
 ## start writing in index.js
+ we uses frontend skill to deliver information on client side in user friendly way
+  !important - we use parseInt to only get int in form of id it is happen when we use :id
+
+## updating the repository so  created .gitignore to prevent unnecessary file uploading
 
 
  
